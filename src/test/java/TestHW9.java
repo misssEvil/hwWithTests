@@ -65,7 +65,7 @@ public class TestHW9 {
 
     @Test
     public void Intersection(){
-
+        Assertions.assertArrayEquals(new int[] {2, 4}, HW9.intersection(new int[] {1, 2, 4, 5, 89}, new int[] {8, 9, 4, 2}));
     }
 
     @Test
@@ -103,6 +103,20 @@ public class TestHW9 {
     public void SumOfTwo(){
         Assertions.assertArrayEquals(new int [][] { {3, 9}, {7, 5}}, HW9.SumOfTwo(new int [] {4, 3, 7, 12, 5, 2, 9, 4, 12}, 12));
         Assertions.assertArrayEquals(new int[][] { {4, 4}, {2, 6}, {1, 7}}, HW9.SumOfTwo(new int[] {4, 2, 6, 1, 3, 7, 4}, 8));
+    }
+
+    @Test
+    public void NumberOfOccurrences(){
+
+
+       Assertions.assertArrayEquals(new int[][] {{1, 4}, {2, 4}, {3, 4}, {4, 3}, {5, 4}},
+               HW9.NumberOfOccurences(new int[] {3, 2, 5, 3, 1, 5, 4, 2, 1, 4, 5, 3, 2, 1, 4, 5, 3, 2, 1}));
+
+       Assertions.assertArrayEquals(new int [][] {{0, 2}, {1, 2},{2, 2}, {3, 2}, {5, 2}},
+               HW9.NumberOfOccurences(new int[] {3, 5, 2, 3, 2, 5, 0, 1, 1, 0}));
+
+       Assertions.assertArrayEquals(new int[][] {{2, 7}, {5, 4}},
+               HW9.NumberOfOccurences(new int[] {2, 2, 5, 2, 5, 2, 2, 5, 2, 2, 5}));
     }
 
 
