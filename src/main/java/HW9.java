@@ -133,10 +133,19 @@ public class HW9 {
     }
 
     public static int [] intersection(int [] arr1, int [] arr2){
+        List <Integer> r = new ArrayList<>();
 
+        int i;
+        int j;
 
-
-        return new int[] {0};
+        for (i = 0; i < arr1.length; i++){
+            for (j = 0; j < arr2.length; j++){
+                if (arr1[i] == arr2[j]){
+                    r.add(arr1[i]);
+                }
+            }
+        }
+        return Common.ListToArray(r);
     }
 
     public static List <Integer> PeakElement(int [] arr){
@@ -200,7 +209,6 @@ public class HW9 {
     }
 
     public static long KthLargest(int [] arr, int k){
-       // long res = 0;
         Arrays.sort(arr);
         return arr[arr.length - k];
     }
@@ -258,18 +266,7 @@ public class HW9 {
         return res;
     }
 
-    /*
-    count = 0;
- for (int i = 0; i < array.length; i++) {
-       for (int j = 1; j < array.length; j++) {
-             if (array[i] == array[j]) {
-                         count++;
-             }
-        }
-      newarray[i] = array[i];
-      newarray2[i] = count;
-     count = 0;
-     */
+
     public static int [][] SumOfTwo(int [] arr, int sum){
         List <Integer> res = new ArrayList<>();
 
@@ -288,6 +285,35 @@ public class HW9 {
         for (int i = 0; i < finalArr.length; i++){
             finalArr[i][0] = res.get(j);
             finalArr [i][1] = res.get(j + 1);
+            j += 2;
+        }
+        return finalArr;
+    }
+
+    public static int [][] NumberOfOccurences(int [] arr){
+        List <Integer> list = new ArrayList<>();
+        int counterN = 0;
+        Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length; i++){
+            for (int j = i + 1; j < arr.length; j++){
+                if (arr[i] == arr[j]){
+                    counterN++;
+                }
+            }
+            if (counterN != 0){
+                i = i + counterN ;
+                list.add(arr[i]);
+                list.add(counterN + 1);
+            }
+            counterN = 0;
+        }
+
+        int [][] finalArr = new int [list.size()/2][2];
+        int j = 0;
+        for (int i = 0; i < finalArr.length; i++){
+            finalArr[i][0] = list.get(j);
+            finalArr [i][1] = list.get(j + 1);
             j += 2;
         }
         return finalArr;
