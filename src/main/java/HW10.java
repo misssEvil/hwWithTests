@@ -71,12 +71,7 @@ public class HW10 {
     }
 
     public static boolean containsWord(String str, String word){
-        if (str.contains(word) == true){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return str.contains(word) == true;
     }
 
     public static String addQuoteMarksAndPeriod(String str)
@@ -138,7 +133,7 @@ public class HW10 {
         int j = 0;
         for (int i = 0; i < str.length(); i++){
             if (Character.isDigit(str.charAt(i))){
-                res[j] = Integer.valueOf(str.substring(i, i+1));
+                res[j] = Integer.parseInt(str.substring(i, i+1));
                 j++;
             }
         }
@@ -180,8 +175,8 @@ public class HW10 {
         sArr = str.split(" ");
         int count = 1;
 
-        for (int i = 0; i < sArr.length; i++){
-            if (sArr[i].equals(word)){
+        for (String s : sArr) {
+            if (s.equals(word)) {
                 count++;
             }
         }
@@ -223,7 +218,20 @@ public class HW10 {
     }
 
     public static String removeAllDuplicates(String str){
-        return "";
+        String res = "";
+        str = str.toLowerCase();
+        if (!str.isEmpty()){
+            for (int i = 0; i < str.length(); i++){
+                if (str.contains(String.valueOf(str.charAt(i)))){
+                    res = res.concat(String.valueOf(str.charAt(i)));
+                    str = str.replaceAll(String.valueOf(str.charAt(i)), "");
+                }
+            }
+        }
+        else {
+            res = "String is empty";
+        }
+        return res;
     }
 
     public static String stringIntersection(String str1, String str2){
