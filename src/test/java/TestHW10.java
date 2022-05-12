@@ -129,7 +129,6 @@ public class TestHW10 {
 
     @Test
     public void wordCount(){
-
         Assertions.assertEquals(5, HW10.countWords(str, "Java"));
         Assertions.assertEquals(2, HW10.countWords(str, "version"));
     }
@@ -147,15 +146,20 @@ public class TestHW10 {
     }
 
     @Test
+    public void removeAllDuplicates(){
+        Assertions.assertEquals("abc",HW10.removeAllDuplicates("AABBCCaabbcc") );
+    }
+
+    @Test
     public void stringIntersection(){
-        Assertions.assertEquals("car2", HW10.stringIntersection("Car2rot", "car2s"));
+        Assertions.assertEquals("ccar", HW10.stringIntersection("Ccarrot", "ccars"));
         Assertions.assertEquals("car", HW10.stringIntersection("cars", "Carrot"));
         Assertions.assertEquals("tie", HW10.stringIntersection("blacktiee","tied"));
         Assertions.assertEquals("tie", HW10.stringIntersection("tied", "blacktiee"));
         Assertions.assertEquals("oo", HW10.stringIntersection("Schmoooze", "Noob"));
-        Assertions.assertEquals("oo", HW10.stringIntersection("Noob", "Schmoooze"));
+        Assertions.assertEquals("oo", HW10.stringIntersection("Nooob", "Schmooze"));
         Assertions.assertEquals("aaa", HW10.stringIntersection("uyaaaaa", "raaat"));
-        Assertions.assertEquals("11", HW10.stringIntersection("12112", "12211405"));
+        Assertions.assertEquals("211", HW10.stringIntersection("22117", "502114"));
     }
 
     @Test
